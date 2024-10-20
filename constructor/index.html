@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    /* const employee1 = {
+      name: 'John',
+      age: 30,
+    }
+
+    const employee2 = {
+      name: 'Jane',
+      age: 25,
+    }
+*/
+
+    function Employee(name, age) {
+      this.name = name
+      this.age = age
+      this.say = function () {
+        console.log(`My name is ${this.name} and I am ${this.age} years old.`)
+      }
+    }
+
+    const employee1 = new Employee('John', 30)
+    const employee2 = new Employee('Jane', 25)
+
+
+  </script>
+</body>
+
+</html>
