@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    class User {
+      constructor(name, role, page) {
+        this.name = name
+        this.role = role
+        this.page = page
+      }
+
+      welcome() {
+        console.log(`Welcome ${this.name}`)
+      }
+
+      render() {
+        throw new Error('abstract method not implemented')
+      }
+    }
+
+    class Editor extends User {
+      constructor(name) {
+        super(name, 'editor', ['home', 'editor'])
+      }
+
+      render() {
+        console.log(`Render Editor`)
+      }
+    }
+
+    class SuperAdmin extends User {
+      constructor(name) {
+        super(name, 'super admin', ['home', 'super admin'])
+      }
+
+      render() {
+        console.log(`Render SuperAdmin`)
+      }
+    }
+
+    class Admin extends User {
+      constructor(name) {
+        super(name, 'admin', ['home', 'admin'])
+      }
+
+      render() {
+        console.log(`Render Admin`)
+      }
+    }
+
+    function createUserFactory(role) {
+      switch (role) {
+        case 'editor':
+          return Editor
+        case 'super admin':
+          return SuperAdmin
+        case 'admin':
+          return Admin
+        default:
+          throw new Error('Invalid role')
+      }
+    }
+
+
+    const Editor = createUserFactory('editor')
+    const SuperAdmin = createUserFactory('super admin')
+    const Admin = createUserFactory('admin')
+
+  </script>
+</body>
+
+</html>

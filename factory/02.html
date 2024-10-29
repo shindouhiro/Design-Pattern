@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    class User {
+      constructor(role, page) {
+        this.role = role
+        this.page = page
+      }
+
+      static UserFactory(role) {
+        switch (role) {
+          case 'admin':
+            return new User('admin', 'adminPage')
+          case 'superadmin':
+            return new User('useradmin', 'useradminPage')
+          case 'editor':
+            return new User('editor', 'editorPage')
+          default:
+            throw new Error('Invalid role')
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

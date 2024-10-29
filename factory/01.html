@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    function User(role, page) {
+      this.role = role
+      this.page = page
+    }
+
+    function UserFactory(role) {
+      switch (role) {
+        case 'admin':
+          return new User('admin', ['home', 'user', 'news'])
+          break
+        case 'superadmin':
+          return new User('superadmin', ['hone', 'user', 'news', 'setting'])
+          break
+        case 'editor':
+          return new User('editor', ['home', 'news'])
+          break
+        default:
+          throw new Error('Invalid role')
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
